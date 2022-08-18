@@ -17,7 +17,7 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    preprocess_data()
+    runModel()
     #print_hi('Hello World')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

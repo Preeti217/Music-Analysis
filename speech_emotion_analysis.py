@@ -103,7 +103,10 @@ def load_data(test_size=0.2):
         emotion = emotions[file_name.split("-")[2]]
         if emotion not in observed_emotions:
             continue
-        feature = extract_feature(file, mfcc=True, chroma=True, mel=True)
+        wav_file = WavProperties()
+        wav_file.extract_file_informaton(file_name, emotions)
+        extract_feature(file, wav_file, mfcc=True, chroma=True, mel=True)
+        feature = wav_file.featureForTraining
         x.append(feature)
         y.append(emotion)
     return train_test_split(np.array(x), y, test_size=test_size, random_state=9)
